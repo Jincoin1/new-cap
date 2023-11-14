@@ -1,28 +1,51 @@
-#include <stdlib.h>
+/*
+
+eg：
+    *
+   ***
+  *****
+ *******
+  *****
+   ***
+    *
+*/
+
+
 #include <stdio.h>
-#include <assert.h>
-#include <string.h>
-void reserves(char* str)
+int main ()
 {
-    assert (str);
-    int len = strlen(str);
-    char *left = str;
-    char *right = str + len - 1;
-    while(left<right)
+    int i = 0;
+    int line = 0;
+    scanf("%d",&line);
+    for(i=0;i<line;i++)
+    //打印上半部分
     {
-        char tmp = *left;
-        *left = *right;
-        *right = tmp;
-        left++;
-        right--;
+        int j =0;//打印空格；
+        for(j=0;j<line-1-i;j++)
+        {
+            printf(" ");
+        }
+        //打印*；
+        for(j=0;j<2*i+1;j++)
+        {
+            printf("*");
+        }
+        printf("\n");
     }
-}
-int main()
-{
-    char arr[300] = {0};
-    printf("请输入：");
-    scanf("%s",arr);
-    reserves(arr);
-    printf("逆序结果：%s\n",arr);
+    for(i=0;i<line-1;i++)
+    //打印下半部分；
+    {
+        int j = 0;//打印空格；
+        for(j=0;j<=i;j++)
+        {
+            printf(" ");
+        }
+        //打印*号；
+        for(j=0;j<2*(line-1-i)-1;j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
     return 0;
 }
